@@ -1,0 +1,100 @@
+# 2021-01-22
+# Emma Benjaminson  
+# Implementation of min heap
+# Source: https://www.educative.io/edpresso/heap-implementation-in-python
+
+
+class MinHeap:
+    def __init__(self):
+        """
+        With this implementation, the heap list is initialized with a value.
+        """
+
+        self.heap_list = [0]
+        self.current_size = 0
+
+    def sift_up(self, i):
+        """
+        Moves the value up in the tree to maintain the heap property.
+        """
+
+        # while the element is not the root or the left element
+        while i // 2 > 0: # // is integer division
+
+            # if the element is less than its parent, swap the elements
+            if self.heap_list[i] < self.heap_list[i // 2]:
+                self.heap_list[i], self.heap_list[i // 2] = self.heap_list[i // 2], self.heap_list[i]
+
+            # move the index to the parent 
+            i = i // 2
+
+    def insert(self, k):
+        """
+        Inserts a value into the heap
+        """
+
+        # append the element to the heap
+        self.heap_list.append(k)
+
+        # increase the size of the heap
+        self.current_size += 1
+
+        # move the element to its position from bottom to the top
+        self.sift_up(self.current_size)
+
+    def sift_down(self, i):
+
+        # if the current node has at least one child
+        while (i * 2) <= self.current_size:
+
+            # get the index of the min child of the current node
+            mc = self.min_child(i)
+
+            # swap the values if the current element is greater than its min child
+            if self.heap_list[i] > self.heap_list[mc]:
+                self.heap_list[i], self.heap_list[mc] = self.heap_list[mc], self.heap_list[i]
+
+            i = mc
+    
+    def min_child(self, i):
+        
+        # if the current node has only one child, return the index of the unique child
+        if (i * 2)+1 > self.current_size:
+            return i * 2
+        else:
+            # for the case when the current node has 2 children
+            # return the index of the min child according to their values
+            if self.heap_list[i*2] < self.heap_list[(i*2)+1]:
+                return i * 2
+            else:
+                return (i * 2) + 1 
+
+    def delete_min(self):
+
+        # equal to 1 since the heap list was initialized with a value
+        if len(self.heap_list) == 1:
+            return 'Empty heap'
+
+        # get root of the heap (the min value)
+        root = self.heap_list[1]
+
+        # move the last value of the heap to the root
+        self.heap_list[1] = self.heap_list[self.current_size]
+
+        # pop the last value since a copy was set on the root
+        # the asteriks means that we should unpack all the terms in self.heap_list
+        # and assign to self.heap_list again, except for the last item, which is the copy of the value 
+        # that is now assigned to the root node
+        # Source: https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/
+        *self.heap_list, _ = self.heap_list
+
+        # decrease the size of the heap
+        self.current_size -= 1
+
+        # move down the root (value at index 1) to keep the heap property
+        self. sift_down(1)
+
+        # return the min value of the heap
+        return root
+
+if __main__ == "__main__":
