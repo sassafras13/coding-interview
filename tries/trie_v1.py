@@ -57,6 +57,8 @@ def add(root, word: str):
     # finished running through the word
     node.word_finished = True
 
+# the syntax "prefix: str" means that the input, prefix, must be type string
+# similarly the syntax "-> Tuple[bool, int]" means that the output must be type Tuple
 def find_prefix(root, prefix: str) -> Tuple[bool, int]:
     """
     Check and return:

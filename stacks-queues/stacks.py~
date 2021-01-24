@@ -39,13 +39,13 @@ if __name__ == "__main__":
     print("the stack is: ")
     print(stack)
     print("peeking at the stack: ")
-    stack.peek()
+    print(stack.peek())
     print("stack size is: ")
-    stack.size()
+    print(stack.size())
     print("is the stack empty?")
-    stack.is_empty()
+    print(stack.is_empty())
 
     print("pop an element and check size")
-    stack.pop()
-    stack.size()
+    print(stack.pop())
+    print(stack.size())
 
