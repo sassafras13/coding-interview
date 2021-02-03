@@ -1,0 +1,27 @@
+# 2021-01-30
+# Emma Benjaminson
+# Implementation of Mergesort
+# Source: https://www.geeksforgeeks.org/merge-sort/
+
+def mergeSort(arr):
+
+    if len(arr) > 1:
+
+        # find the middle of the array
+        mid = len(arr) // 2
+
+        # divide up the array elements into two halves
+        L = arr[:mid]
+        R = arr[mid:]
+
+        # sort each half
+        mergeSort(L)
+        mergeSort(R)
+
+        i = j = k = 0
+
+        # copy data to temp arrays L[] and R[]
+        while i < len(L) and j < len(R):
+            if L[i] < R[j]:
+                arr[k] = L[i]
+                i += 1
