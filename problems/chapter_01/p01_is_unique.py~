@@ -62,8 +62,8 @@ def isUniqueMod(string):
             # if the char matches with a char further along in the string
             # then we have a duplicate
             if char == check_char:
-                print("char is ", char)
-                print("check_char is ", check_char)
+                #print("char is ", char)
+                #print("check_char is ", check_char)
                 return False
 
             # otherwise we keep running and exit the inner loop
