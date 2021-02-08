@@ -34,3 +34,7 @@
 # traverse? or is that just something I'll do myself? 
 
 # I'm going to implement linked list in a separate doc in case I need it again later
+
+import LinkedList as ll
+
+
