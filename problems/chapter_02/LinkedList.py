@@ -31,7 +31,7 @@ class LinkedList:
         # then we iterate through the remaining nodes and create new nodes that are connected
         if nodes is not None:
             node = Node(data=nodes.pop(0))
-            self.head.next = node
+            self.head = node
 
             for elem in nodes:
                 node.next = Node(data=elem)
@@ -41,7 +41,7 @@ class LinkedList:
         node = self.head
         nodes = []
         while node is not None:
-            nodes.append(node)
+            nodes.append(node.data)
             node = node.next
         nodes.append("None")
         return " -> ".join(nodes)

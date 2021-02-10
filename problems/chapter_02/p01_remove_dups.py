@@ -37,4 +37,31 @@
 
 import LinkedList as ll
 
+def removeDups(linkList):
 
+    # create a set
+    seen = set() 
+    
+    # while the next node is not None in linkList
+    node = linkList.head
+
+    while node.next is not None:
+
+        if node.data in seen:
+            linkList.remove_node(node)
+
+        else:
+            seen.add(node.data)
+
+        node = node.next
+
+    return seen
+
+if __name__ == "__main__":
+    
+    linkList = ll.LinkedList(["HI", "OR", "AL", "WA", "OR", "PA"])
+    print('original list ', linkList)
+    
+    seen = removeDups(linkList)
+    print('cleaned list ', linkList)
+    print('seen set ', seen)
