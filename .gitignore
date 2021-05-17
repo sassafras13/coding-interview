@@ -1,0 +1,5 @@
+# thanks to https://github.com/careercup/CtCI-6th-Edition-Python/blob/master/.gitignore
+
+### Python ###
+__pycache__/
+*.py[cod]

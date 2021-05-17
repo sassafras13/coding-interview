@@ -52,6 +52,8 @@
 
 # -------------------------------------------------------------------------------------------------
 
+import unittest
+
 # create stack3 class
 class stackThree:
 
@@ -59,7 +61,7 @@ class stackThree:
     # size is n
     def __init__(self, n):
         # thanks https://stackoverflow.com/questions/521674/initializing-a-list-to-a-known-number-of-elements-in-python
-        self.stacks = [None for x in range(n)]
+        self.stacks = [None for x in range(3*n)]
         self.idx = [0, ((2*n)-1), (2*n)]  
 
     # end of stack 1 is located at index 0
@@ -139,4 +141,16 @@ class stackThree:
         # if one of the elements is not None then break the loop
         # return isEmpty = False
         return isEmpty
+
+
+# for testing
+#class Test(unittest.TestCase):
+    
+#    test_cases = [
+#            (
+
+
+
+#if __name__ == "__main__":
+
 
